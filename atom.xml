@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-05-23T02:32:17.308Z</updated>
+  <updated>2017-05-23T05:49:36.171Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,95 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Image</title>
+    <link href="http://yoursite.com/2017/05/23/Image/"/>
+    <id>http://yoursite.com/2017/05/23/Image/</id>
+    <published>2017-05-23T05:49:36.000Z</published>
+    <updated>2017-05-23T05:49:36.171Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo教程</title>
+    <link href="http://yoursite.com/2017/05/23/Hexo%E6%95%99%E7%A8%8B/"/>
+    <id>http://yoursite.com/2017/05/23/Hexo教程/</id>
+    <published>2017-05-23T03:58:10.000Z</published>
+    <updated>2017-05-23T07:09:10.226Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h2><p>1.安装Node.js</p>
+<p>2.安装Git</p>
+<ol>
+<li>申请GitHub</li>
+</ol>
+<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><p>1.打开Git Bash, 输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$npm</span> install hexo-cli -g</div><div class="line"><span class="variable">$npm</span> install hexo --save</div></pre></td></tr></table></figure>
+<p>然后输入以下命令查看Hexo的版本信息：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$hexo</span> -v</div></pre></td></tr></table></figure>
+<p>如果出现类似内容说明安装成功。</p>
+<p><img src="/2017/05/23/Hexo教程/1.jpg" alt="结果"></p>
+<h2 id="Hexo的初始设置"><a href="#Hexo的初始设置" class="headerlink" title="Hexo的初始设置"></a>Hexo的初始设置</h2><p>1.新建Blog文件夹。如在E盘中新建Blog文件夹</p>
+<p>2.使用GitBush进入文件夹中，并初始化博客目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$cd</span> e:B<span class="built_in">log</span></div><div class="line"><span class="variable">$hexo</span> init</div></pre></td></tr></table></figure>
+<p>然后输入<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$npm</span> install</div></pre></td></tr></table></figure></p>
+<p>之后npm将会自动安装需要的组件，只需等待npm操作即可。</p>
+<p>3.与GitHub连接<br>   在GitHub中建立与用户名对应的Repository，名称必须为【your_user_name.github.io】,如jpsxno1.github.io<br>,此为固定写法。<br>   在站点配置文件（即Blog文件夹下的_config.yml）中找到deploy，并添加对应配置：</p>
+<pre><code># Deployment
+## Docs: http://hexo.io/docs/deployment.html
+deploy:
+type: git
+repo: https://github.com/jpsxno1/jpsxno1.github.io.git
+branch: master
+</code></pre><p>然后安装插件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$npm</span> install hexo-deployer-git --save</div></pre></td></tr></table></figure>
+<h2 id="Hexo的简单使用"><a href="#Hexo的简单使用" class="headerlink" title="Hexo的简单使用"></a>Hexo的简单使用</h2><p>1.新建文章</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$hexo</span> new <span class="string">"文章名"</span></div></pre></td></tr></table></figure>
+<p>然后就可以在Blog/source/_posts文件夹下找到对应的.md文件。使用编辑器打开：</p>
+<hr>
+<p>title: FirstUse</p>
+<p>date: 2017-05-23 10:20:02</p>
+<p>tags:</p>
+<hr>
+<p>在下面就可以接着写文章的内容，如：</p>
+<hr>
+<p>title: FirstUse</p>
+<p>date: 2017-05-23 10:20:02</p>
+<p>tags:</p>
+<hr>
+<p>这是我第一次使用Hexo，参考了网上的一些教程自己弄了个个人博客。以后我会在这个博客中记录学习、生活中的一些事。</p>
+<p>2.生成页面</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$hexo</span> generate</div></pre></td></tr></table></figure>
+<p>3.页面预览</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$hexo</span> server</div></pre></td></tr></table></figure>
+<p>然后会看到这样一条提示：</p>
+<p><img src="/2017/05/23/Hexo教程/2.jpg" alt="图片"></p>
+<p>现在打开浏览器就可以访问 <a href="http://localhost:4000/。" target="_blank" rel="external">http://localhost:4000/。</a></p>
+<p>4.发布到GitHub</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$hexo</span> deploy</div></pre></td></tr></table></figure>
+<p>然后再GitHub上便能看到刚刚部署的Web网站：<a href="https://jpsxno1.github.io/" target="_blank" rel="external">https://jpsxno1.github.io/</a><br>每次部署的步骤，可分为三步：</p>
+<p>hexo clean</p>
+<p>hexo generate</p>
+<p>hexo deploy</p>
+]]></content>
+    
+    <summary type="html">
+    
+      部署Hexo博客
+    
+    </summary>
+    
+      <category term="Hexo教程" scheme="http://yoursite.com/categories/Hexo%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>FirstUse</title>

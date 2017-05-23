@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2017/05/23/Hexo%E6%95%99%E7%A8%8B/</loc>
+    
+    <lastmod>2017-05-23T07:09:10.226Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/05/23/Image/</loc>
+    
+    <lastmod>2017-05-23T05:49:36.171Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/05/23/FirstUse/</loc>
     
     <lastmod>2017-05-23T02:32:17.308Z</lastmod>
