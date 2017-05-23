@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-05-23T05:49:36.171Z</updated>
+  <updated>2017-05-23T07:44:21.045Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,68 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo文章中添加图片</title>
+    <link href="http://yoursite.com/2017/05/23/Hexo%E6%96%87%E7%AB%A0%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87/"/>
+    <id>http://yoursite.com/2017/05/23/Hexo文章中添加图片/</id>
+    <published>2017-05-23T07:12:47.000Z</published>
+    <updated>2017-05-23T07:44:21.045Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><ol>
+<li>首先将站点配置文件_config.yml中 post_asset_folder: 这个选项设置为true。</li>
+<li>在Git Bush 中 hexo目录下，下载插件，执行</li>
+</ol>
+<pre><code class="bash">$ npm install hexo-asset-image --save
+</code></pre>
+<ol>
+<li><p>执行成功后，再运行hexo new “xxxx”生成md博文时， /source/_posts文件夹内除了生成xxxx.md文件外还生成了一个同名的文件夹</p>
+</li>
+<li><p>若想在xxxx.md中引入图片，则先把图片赋值到xxxx文件夹中，然后只需要在xxxx.md中按照markdown的格式引入图片</p>
+</li>
+</ol>
+<p>“<img src="/2017/05/23/Hexo文章中添加图片/xxxx/图片名.jpg" alt="替代文字">“</p>
+<ol>
+<li>最后检查一下， hexo  g 生成页面后，进入public\2017\05\23\index.html文件中查看相关字段，可以发现，html标签内的语句是”<img src="/2017/05/23/Hexo文章中添加图片/2017/05/23/xxxx/图片名.jpg">“， 而不是”<img src="/2017/05/23/Hexo文章中添加图片/xxxx/图片名.jpg">“。这很重要，关乎你的网页是否可以真正加载你想插入的图片。</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      如何在文章中插入图片
+    
+    </summary>
+    
+      <category term="Hexo教程" scheme="http://yoursite.com/categories/Hexo%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo 问题集</title>
+    <link href="http://yoursite.com/2017/05/23/Hexo-%E9%97%AE%E9%A2%98%E9%9B%86/"/>
+    <id>http://yoursite.com/2017/05/23/Hexo-问题集/</id>
+    <published>2017-05-23T07:12:17.000Z</published>
+    <updated>2017-05-23T07:16:25.231Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="网站乱码问题"><a href="#网站乱码问题" class="headerlink" title="网站乱码问题"></a>网站乱码问题</h2><pre><code>在/source/_posts文件夹中的.md文件的编码方式必须是UTF-8。
+在编辑器中打开.md文件，将其另存为...，在另存为弹出中选择编码方式为UTF-8。
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      Hexo常见问题
+    
+    </summary>
+    
+      <category term="Hexo教程" scheme="http://yoursite.com/categories/Hexo%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>Image</title>
@@ -34,7 +96,7 @@
     <link href="http://yoursite.com/2017/05/23/Hexo%E6%95%99%E7%A8%8B/"/>
     <id>http://yoursite.com/2017/05/23/Hexo教程/</id>
     <published>2017-05-23T03:58:10.000Z</published>
-    <updated>2017-05-23T07:09:10.226Z</updated>
+    <updated>2017-05-23T07:42:11.881Z</updated>
     
     <content type="html"><![CDATA[<h2 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h2><p>1.安装Node.js</p>
 <p>2.安装Git</p>
