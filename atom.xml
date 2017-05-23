@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-05-22T08:55:53.493Z</updated>
+  <updated>2017-05-23T02:22:43.118Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,18 +16,18 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello</title>
-    <link href="http://yoursite.com/2017/05/22/Hello/"/>
-    <id>http://yoursite.com/2017/05/22/Hello/</id>
-    <published>2017-05-22T08:54:07.000Z</published>
-    <updated>2017-05-22T08:55:53.493Z</updated>
+    <title>FirstUse</title>
+    <link href="http://yoursite.com/2017/05/23/FirstUse/"/>
+    <id>http://yoursite.com/2017/05/23/FirstUse/</id>
+    <published>2017-05-23T02:20:02.000Z</published>
+    <updated>2017-05-23T02:22:43.118Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="����"><a href="#����" class="headerlink" title="����"></a>����</h1><p>�����ҵĵ�һƪ���£���</p>
+    <content type="html"><![CDATA[<p>�����ҵ�һ��ʹ��Hexo���ο������ϵ�һЩ�̳��Լ�Ū�˸����˲��͡��Ժ��һ������������м�¼ѧϰ�������е�һЩ�¡�</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;����&quot;&gt;&lt;a href=&quot;#����&quot; class=&quot;headerlink&quot; title=&quot;����&quot;&gt;&lt;/a&gt;����&lt;/h1&gt;&lt;p&gt;�����ҵĵ�һƪ���£���&lt;/p&gt;
+      &lt;p&gt;�����ҵ�һ��ʹ��Hexo���ο������ϵ�һЩ�̳��Լ�Ū�˸����˲��͡��Ժ��һ������������м�¼ѧϰ�������е�һЩ�¡�&lt;/p&gt;
 
     
     </summary>
