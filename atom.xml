@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-05-25T03:03:10.789Z</updated>
+  <updated>2017-05-23T02:32:17.308Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,190 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>游戏中菜单内有可操作的通知系统</title>
-    <link href="http://yoursite.com/2017/05/24/%E6%B8%B8%E6%88%8F%E4%B8%AD%E8%8F%9C%E5%8D%95%E5%86%85%E6%9C%89%E5%8F%AF%E6%93%8D%E4%BD%9C%E7%9A%84%E9%80%9A%E7%9F%A5%E7%B3%BB%E7%BB%9F/"/>
-    <id>http://yoursite.com/2017/05/24/游戏中菜单内有可操作的通知系统/</id>
-    <published>2017-05-24T11:54:42.000Z</published>
-    <updated>2017-05-25T03:03:10.789Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><pre><code>如果策划要求游戏中菜单的按钮（某一界面的接口）需要给出打开界面有多少可操作的提示。如下图中红圈所示：
-</code></pre><p><img src="/2017/05/24/游戏中菜单内有可操作的通知系统/游戏中菜单内有可操作的通知系统
-/1.jpg" alt="图"></p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>  每个界面有多个提示， 每个提示由 背景、数字(1 - 9)、感叹号(!)组成，在每个界面中添加下面的脚本对此进行处理。</p>
-<p>观察者</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//抽象基类</div><div class="line">public abstract class Observe&lt;T&gt; : MonoBehaviour</div><div class="line">&#123;</div><div class="line">    public abstract T Key &#123; get; <span class="built_in">set</span>; &#125;</div><div class="line">    public abstract void SetNotifications(subjectData data);</div><div class="line"></div><div class="line">    public abstract void SetOneNotification(int buttonID, int iconValue);</div><div class="line">    public abstract int GetCount();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div></pre></td><td class="code"><pre><div class="line">public class NotificationObserve : Observe&lt;ObserveKey&gt;</div><div class="line">&#123;</div><div class="line">    [SerializeField]</div><div class="line">    protected UISprite[] iconBackgrounds;</div><div class="line">    [SerializeField]</div><div class="line">    protected UILabel[] iconLabels;</div><div class="line">    [SerializeField]</div><div class="line">    protected UISprite[] iconExclamations;</div><div class="line"></div><div class="line">    public override ObserveKey Key</div><div class="line">    &#123;</div><div class="line">        get</div><div class="line">        &#123;</div><div class="line">            throw new NotImplementedException();</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">set</span></div><div class="line">        &#123;</div><div class="line">            throw new NotImplementedException();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    void <span class="function"><span class="title">Start</span></span>()</div><div class="line">    &#123;</div><div class="line">        Key = ObserveKey.mainUI;</div><div class="line">        NotificationSubject.Instance.RigesterObserve(this);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public override void SetNotifications(subjectData data)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">for</span>(var i = 0; i &lt; data.nums.Length; ++i)</div><div class="line">        &#123;</div><div class="line">            SetOneNotification(i, data.nums[i]);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public override void SetOneNotification(int buttonID, int iconValue)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span> (iconValue &lt; 0)	</div><div class="line">        &#123;</div><div class="line">            iconBackgrounds[buttonID].enabled = <span class="literal">false</span>;</div><div class="line">            iconLabels[buttonID].enabled = <span class="literal">false</span>;</div><div class="line">            iconExclamations[buttonID].enabled = <span class="literal">false</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (iconValue == 0 || iconValue &gt; 9)</div><div class="line">        &#123;</div><div class="line">            iconBackgrounds[buttonID].enabled = <span class="literal">true</span>;</div><div class="line">            iconLabels[buttonID].enabled = <span class="literal">false</span>;	</div><div class="line">            iconExclamations[buttonID].enabled = <span class="literal">true</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (iconValue &gt; 0)</div><div class="line">        &#123;</div><div class="line">            iconBackgrounds[buttonID].enabled = <span class="literal">true</span>;</div><div class="line">            iconLabels[buttonID].enabled = <span class="literal">true</span>;</div><div class="line">            iconLabels[buttonID].text = (Math.M<span class="keyword">in</span>(iconValue, 9)).ToString();</div><div class="line">            iconExclamations[buttonID].enabled = <span class="literal">false</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public override int <span class="function"><span class="title">GetCount</span></span>()</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">return</span> iconBackgrounds.Length;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>主题</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line">///每个界面对应的关键字</div><div class="line">public enum ObserveKey</div><div class="line">&#123;</div><div class="line">    mainUI,</div><div class="line">    storeUI,</div><div class="line">    none</div><div class="line">&#125;</div><div class="line">///每个界面的通知数据</div><div class="line">public class subjectData</div><div class="line">&#123;</div><div class="line">    public ObserveKey key;</div><div class="line">    public int[] nums;</div><div class="line"></div><div class="line">    public subjectData(ObserveKey key, int[] nums)</div><div class="line">    &#123;</div><div class="line">        this.key = key;</div><div class="line">        this.nums = nums;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public string <span class="function"><span class="title">ToJson</span></span>()</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">return</span> <span class="string">""</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public bool Parse(string json)</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">return</span> <span class="literal">true</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">///抽象基类</div><div class="line">public abstract class Subject&lt;T&gt; : MonoBehaviour</div><div class="line">&#123;</div><div class="line">    protected Dictionary&lt;T, Observe&lt;T&gt;&gt; observes = new Dictionary&lt;T, Observe&lt;T&gt;&gt;();</div><div class="line">    public void RigesterObserve(Observe&lt;T&gt; observe)</div><div class="line">     &#123;</div><div class="line">         <span class="keyword">if</span> (!observes.ContainsKey(observe.Key))</div><div class="line">             observes.Add(observe.Key, observe);</div><div class="line">     &#125;</div><div class="line"></div><div class="line">    public void UnRigesterObserve(Observe&lt;T&gt; observe)</div><div class="line">     &#123;</div><div class="line">         <span class="keyword">if</span> (observes.ContainsKey(observe.Key))</div><div class="line">             observes.Remove(observe.Key);</div><div class="line">     &#125;</div><div class="line">    public Observe&lt;T&gt; GetObserve(T key)</div><div class="line">     &#123;</div><div class="line">         <span class="keyword">if</span> (observes.ContainsKey(key))</div><div class="line">             <span class="built_in">return</span> observes[key];</div><div class="line">         <span class="built_in">return</span> null;</div><div class="line">     &#125;</div><div class="line">     public abstract void Notify(); ///通知所有的界面</div><div class="line"></div><div class="line">     public abstract void NotifyOneKey(T key);///通知key对应的界面</div><div class="line"></div><div class="line">     public abstract void NotifyOneOne(T key, int index);///通知key对应界面的对应编号</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line">///通知的管理类</div><div class="line">public class NotificationSubject : Subject&lt;ObserveKey&gt;</div><div class="line">&#123;</div><div class="line">    public subjectData[] datas;</div><div class="line">    public static NotificationSubject Instance;</div><div class="line">    void <span class="function"><span class="title">Awake</span></span>()</div><div class="line">    &#123;</div><div class="line">        datas = new subjectData[(int)ObserveKey.none];</div><div class="line">        <span class="keyword">for</span> (int i = (int)ObserveKey.none; i &gt;= 0; --i)</div><div class="line">        &#123;</div><div class="line">            datas[i].key = (ObserveKey)i;</div><div class="line">            datas[i].nums = new int[base.GetObserve(datas[i].key).GetCount()];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public override void <span class="function"><span class="title">Notify</span></span>()</div><div class="line">    &#123;</div><div class="line">         this.CalcDatas();</div><div class="line"></div><div class="line">         <span class="keyword">for</span>(int i = (int)ObserveKey.none; i &gt;= 0; --i)</div><div class="line">         &#123;</div><div class="line">             observes[(ObserveKey)i].SetNotifications(datas[i]);</div><div class="line">         &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public override void NotifyOneKey(ObserveKey key)</div><div class="line">    &#123;</div><div class="line">        this.CalcDatas();</div><div class="line"></div><div class="line">        observes[key].SetNotifications(datas[(int)key]);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public override void NotifyOneOne(ObserveKey key, int index)</div><div class="line">    &#123;</div><div class="line">        this.CalcDatas();</div><div class="line"></div><div class="line">        observes[key].SetOneNotification(index, datas[(int)key].nums[index]);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /// &lt;summary&gt;</div><div class="line">    /// 计算subjectData中nums值</div><div class="line">    /// &lt;/summary&gt;</div><div class="line">    public void <span class="function"><span class="title">CalcDatas</span></span>()</div><div class="line">    &#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>当需要时调用NotificationSubject.Instance.Notify / NotifyOneKey / NotifyOneOne即可。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      如果策划要求游戏中菜单的按钮（某一界面的接口）需要给出打开界面有多少可操作的提示。
-    
-    </summary>
-    
-      <category term="Unity脚本" scheme="http://yoursite.com/categories/Unity%E8%84%9A%E6%9C%AC/"/>
-    
-    
-      <category term="Unity" scheme="http://yoursite.com/tags/Unity/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo文章中添加图片</title>
-    <link href="http://yoursite.com/2017/05/23/Hexo%E6%96%87%E7%AB%A0%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87/"/>
-    <id>http://yoursite.com/2017/05/23/Hexo文章中添加图片/</id>
-    <published>2017-05-23T07:12:47.000Z</published>
-    <updated>2017-05-24T11:52:07.900Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><ol>
-<li>首先将站点配置文件_config.yml中 post_asset_folder: 这个选项设置为true。</li>
-<li>在Git Bush 中 hexo目录下，下载插件，执行</li>
-</ol>
-<pre><code class="bash">$ npm install hexo-asset-image --save
-</code></pre>
-<ol>
-<li><p>执行成功后，再运行hexo new “xxxx”生成md博文时， /source/_posts文件夹内除了生成xxxx.md文件外还生成了一个同名的文件夹</p>
-</li>
-<li><p>若想在xxxx.md中引入图片，则先把图片赋值到xxxx文件夹中，然后只需要在xxxx.md中按照markdown的格式引入图片</p>
-</li>
-</ol>
-<p><img src="/2017/05/23/Hexo文章中添加图片/xxxx/图片名.jpg" alt="替代文字"></p>
-<ol>
-<li>最后检查一下， hexo  g 生成页面后，进入public\2017\05\23\index.html文件中查看相关字段，可以发现，html标签内的语句是<img src="/2017/05/23/Hexo文章中添加图片/2017/05/23/xxxx/图片名.jpg">， 而不是<img src="/2017/05/23/Hexo文章中添加图片/xxxx/图片名.jpg">。这很重要，关乎你的网页是否可以真正加载你想插入的图片。</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      如何在文章中插入图片
-    
-    </summary>
-    
-      <category term="Hexo教程" scheme="http://yoursite.com/categories/Hexo%E6%95%99%E7%A8%8B/"/>
-    
-    
-      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo 问题集</title>
-    <link href="http://yoursite.com/2017/05/23/Hexo-%E9%97%AE%E9%A2%98%E9%9B%86/"/>
-    <id>http://yoursite.com/2017/05/23/Hexo-问题集/</id>
-    <published>2017-05-23T07:12:17.000Z</published>
-    <updated>2017-05-24T11:52:07.775Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="网站乱码问题"><a href="#网站乱码问题" class="headerlink" title="网站乱码问题"></a>网站乱码问题</h2><pre><code>在/source/_posts文件夹中的.md文件的编码方式必须是UTF-8。
-在编辑器中打开.md文件，将其另存为...，在另存为弹出中选择编码方式为UTF-8。
-</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      Hexo常见问题
-    
-    </summary>
-    
-      <category term="Hexo教程" scheme="http://yoursite.com/categories/Hexo%E6%95%99%E7%A8%8B/"/>
-    
-    
-      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Image</title>
-    <link href="http://yoursite.com/2017/05/23/Image/"/>
-    <id>http://yoursite.com/2017/05/23/Image/</id>
-    <published>2017-05-23T05:49:36.000Z</published>
-    <updated>2017-05-24T11:52:07.904Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo教程</title>
-    <link href="http://yoursite.com/2017/05/23/Hexo%E6%95%99%E7%A8%8B/"/>
-    <id>http://yoursite.com/2017/05/23/Hexo教程/</id>
-    <published>2017-05-23T03:58:10.000Z</published>
-    <updated>2017-05-24T11:52:07.793Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h2><p>1.安装Node.js</p>
-<p>2.安装Git</p>
-<ol>
-<li>申请GitHub</li>
-</ol>
-<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><p>1.打开Git Bash, 输入</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$npm</span> install hexo-cli -g</div><div class="line"><span class="variable">$npm</span> install hexo --save</div></pre></td></tr></table></figure>
-<p>然后输入以下命令查看Hexo的版本信息：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$hexo</span> -v</div></pre></td></tr></table></figure>
-<p>如果出现类似内容说明安装成功。</p>
-<p><img src="/2017/05/23/Hexo教程/1.jpg" alt="结果"></p>
-<h2 id="Hexo的初始设置"><a href="#Hexo的初始设置" class="headerlink" title="Hexo的初始设置"></a>Hexo的初始设置</h2><p>1.新建Blog文件夹。如在E盘中新建Blog文件夹</p>
-<p>2.使用GitBush进入文件夹中，并初始化博客目录</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$cd</span> e:B<span class="built_in">log</span></div><div class="line"><span class="variable">$hexo</span> init</div></pre></td></tr></table></figure>
-<p>然后输入<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$npm</span> install</div></pre></td></tr></table></figure></p>
-<p>之后npm将会自动安装需要的组件，只需等待npm操作即可。</p>
-<p>3.与GitHub连接<br>   在GitHub中建立与用户名对应的Repository，名称必须为【your_user_name.github.io】,如jpsxno1.github.io<br>,此为固定写法。<br>   在站点配置文件（即Blog文件夹下的_config.yml）中找到deploy，并添加对应配置：</p>
-<pre><code># Deployment
-## Docs: http://hexo.io/docs/deployment.html
-deploy:
-type: git
-repo: https://github.com/jpsxno1/jpsxno1.github.io.git
-branch: master
-</code></pre><p>然后安装插件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$npm</span> install hexo-deployer-git --save</div></pre></td></tr></table></figure>
-<h2 id="Hexo的简单使用"><a href="#Hexo的简单使用" class="headerlink" title="Hexo的简单使用"></a>Hexo的简单使用</h2><p>1.新建文章</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$hexo</span> new <span class="string">"文章名"</span></div></pre></td></tr></table></figure>
-<p>然后就可以在Blog/source/_posts文件夹下找到对应的.md文件。使用编辑器打开：</p>
-<hr>
-<p>title: FirstUse</p>
-<p>date: 2017-05-23 10:20:02</p>
-<p>tags:</p>
-<hr>
-<p>在下面就可以接着写文章的内容，如：</p>
-<hr>
-<p>title: FirstUse</p>
-<p>date: 2017-05-23 10:20:02</p>
-<p>tags:</p>
-<hr>
-<p>这是我第一次使用Hexo，参考了网上的一些教程自己弄了个个人博客。以后我会在这个博客中记录学习、生活中的一些事。</p>
-<p>2.生成页面</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$hexo</span> generate</div></pre></td></tr></table></figure>
-<p>3.页面预览</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$hexo</span> server</div></pre></td></tr></table></figure>
-<p>然后会看到这样一条提示：</p>
-<p><img src="/2017/05/23/Hexo教程/2.jpg" alt="图片"></p>
-<p>现在打开浏览器就可以访问 <a href="http://localhost:4000/。" target="_blank" rel="external">http://localhost:4000/。</a></p>
-<p>4.发布到GitHub</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$hexo</span> deploy</div></pre></td></tr></table></figure>
-<p>然后再GitHub上便能看到刚刚部署的Web网站：<a href="https://jpsxno1.github.io/" target="_blank" rel="external">https://jpsxno1.github.io/</a><br>每次部署的步骤，可分为三步：</p>
-<p>hexo clean</p>
-<p>hexo generate</p>
-<p>hexo deploy</p>
-]]></content>
-    
-    <summary type="html">
-    
-      部署Hexo博客
-    
-    </summary>
-    
-      <category term="Hexo教程" scheme="http://yoursite.com/categories/Hexo%E6%95%99%E7%A8%8B/"/>
-    
-    
-      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
-    
-  </entry>
   
   <entry>
     <title>FirstUse</title>
@@ -212,6 +28,26 @@ branch: master
     <summary type="html">
     
       &lt;p&gt;这是我第一次使用Hexo，参考了网上的一些教程自己弄了个个人博客。以后我会在这个博客中记录学习、生活中的一些事。&lt;/p&gt;
+
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello</title>
+    <link href="http://yoursite.com/2017/05/22/Hello/"/>
+    <id>http://yoursite.com/2017/05/22/Hello/</id>
+    <published>2017-05-22T08:54:07.000Z</published>
+    <updated>2017-05-26T09:54:37.021Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="����"><a href="#����" class="headerlink" title="����"></a>����</h1><p>�����ҵĵ�һƪ���£���</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;����&quot;&gt;&lt;a href=&quot;#����&quot; class=&quot;headerlink&quot; title=&quot;����&quot;&gt;&lt;/a&gt;����&lt;/h1&gt;&lt;p&gt;�����ҵĵ�һƪ���£���&lt;/p&gt;
 
     
     </summary>
