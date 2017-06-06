@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2017/06/05/Xml/</loc>
+    
+    <lastmod>2017-06-06T08:00:03.517Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/06/05/Json/</loc>
+    
+    <lastmod>2017-06-06T04:01:01.704Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/05/24/%E6%B8%B8%E6%88%8F%E4%B8%AD%E8%8F%9C%E5%8D%95%E5%86%85%E6%9C%89%E5%8F%AF%E6%93%8D%E4%BD%9C%E7%9A%84%E9%80%9A%E7%9F%A5%E7%B3%BB%E7%BB%9F/</loc>
     
     <lastmod>2017-05-26T09:55:55.586Z</lastmod>
