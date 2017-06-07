@@ -1,0 +1,792 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Unity Asset, Resources and AssetBundles," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Jpsxno1" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="Unity资源，对象和序列化">
+<meta name="keywords" content="Unity Asset, Resources and AssetBundles">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unity资源，对象和序列化">
+<meta property="og:url" content="http://yoursite.com/2017/06/07/Unity资源，对象和序列化/index.html">
+<meta property="og:site_name" content="Jpsxno1">
+<meta property="og:description" content="Unity资源，对象和序列化">
+<meta property="og:updated_time" content="2017-06-07T11:49:04.120Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Unity资源，对象和序列化">
+<meta name="twitter:description" content="Unity资源，对象和序列化">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/06/07/Unity资源，对象和序列化/"/>
+
+
+
+
+
+  <title>Unity资源，对象和序列化 | Jpsxno1</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jpsxno1</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/07/Unity资源，对象和序列化/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jpsxno1">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jpsxno1">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Unity资源，对象和序列化</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-07T14:13:05+08:00">
+                2017-06-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Unity基础/" itemprop="url" rel="index">
+                    <span itemprop="name">Unity基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  Unity资源，对象和序列化
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本文将从Unity编辑器和运行时两个角度出发，主要探讨以下两方面内容：Unity序列化系统内部细节以及Unity如何维护不同对象之间的强引用。另外还会讨论对象与资源的技术实现差别。</p>
+<p>译注：除非特别说明，下文中所有的“资源”均指代“Asset”。</p>
+<p>本文内容是理解在Unity中如何高效加载和卸载资源的基础。正确的资源管理对缩短加载时间并减少内存占用来说至关重要。</p>
+<h1 id="深入理解资源和对象"><a href="#深入理解资源和对象" class="headerlink" title="深入理解资源和对象"></a>深入理解资源和对象</h1><p>在理解Unity如何确保万无一失地管理数据之前，首先要知道Unity是如何识别并序列化数据的。首先第一点，要正确区分资源（Asset）和对象（UnityEngine.Objects）。</p>
+<h2 id="Asset"><a href="#Asset" class="headerlink" title="Asset"></a>Asset</h2><p>资源（Asset）是硬盘中的文件，存储在Unity工程的Assets文件夹内。例如，纹理（Texture），材质（Material）和FBX文件等，它们都是资源。一些资源的数据格式是Unity原生支持的，例如材质。有些资源则需要转换为原生的数据格式后才能被Unity使用，例如FBX文件。</p>
+<h2 id="UnityEngine-Object"><a href="#UnityEngine-Object" class="headerlink" title="UnityEngine.Object"></a>UnityEngine.Object</h2><p>UnityEngine.Object，或者说以大写字母O开头的Object——对象，代表序列化数据的集合，表示某个资源的具体实例。它可以是Unity引擎使用的任何类型的资源，例如网格，Sprite，音频剪辑或动画剪辑。所有的对象（Object）都是UnityEngine.Object基类的子类。</p>
+<h2 id="特殊的Object类型"><a href="#特殊的Object类型" class="headerlink" title="特殊的Object类型"></a>特殊的Object类型</h2><p>几乎所有的对象（Object）类型都是内建的，其中有两种比较特殊的类型。</p>
+<p>ScriptableObject为开发者提供了一套便捷的系统，供开发者自定义数据类型。这些类型可以被Unity直接序列化或反序列化，并在Unity编辑器的检视器窗口中进行操作。</p>
+<p>MonoBehaviour提供了链接MonoScript的容器。MonoScript是一种内部数据类型，Unity用它保存对某个特定程序集和命名空间中特定脚本类的引用，MonoScript本身不包含任何实际的可执行代码。</p>
+<h2 id="一对多关系"><a href="#一对多关系" class="headerlink" title="一对多关系"></a>一对多关系</h2><p>资源（Asset）与对象（Object）是一种一对多的关系，即一个资源文件可能会包括多个Object。</p>
+<h1 id="对象之间的引用"><a href="#对象之间的引用" class="headerlink" title="对象之间的引用"></a>对象之间的引用</h1><p>所有UnityEngine.Objects都可以引用其他的UnityEngine.Objects。这里“其他的Object”可能存在于相同的资源文件中，或需要从其他资源文件导入。例如，一个材质Object通常有一个或多个纹理Object的引用。这些纹理Object一般是从一个或多个纹理资源文件中导入的（例如PNG或JPG文件）。</p>
+<p>序列化后，这些引用由两部分数据组成：文件GUID和本地ID。文件GUID用于识别资源（Asset）文件中目标资源（Resource）的存储位置。而本地唯一(1)的ID负责识别单个资源文件中的Object，因为一个资源文件可能会包含多个Object。</p>
+<h2 id="文件GUID-meta"><a href="#文件GUID-meta" class="headerlink" title="文件GUID(.meta)"></a>文件GUID(.meta)</h2><p>文件GUID存储于.meta文件中。Unity会在首次导入资源文件时生成.meta文件，并和资源文件一起存储在相同的目录中。</p>
+<p>上述的识别和引用系统可以使用文本编辑器查看：</p>
+<p>1.创建一个全新的Unity工程，更改编辑器设置，将Edit - Project Settings - Editor中的Version Control设为Visible Meta Files，并将Asset Serialization设为文本。<br>2.新建材质并向工程中导入一个纹理。将材质赋给场景中的一个立方体，保存场景。</p>
+<p>使用文本编辑器打开这个材质对应的.meta文件。在文件顶端附近会有一行被标示为“guid”，该行定义了材质资源文件的文件GUID。</p>
+<p>fileFormatVersion: 2<br>guid: 6839b719d14310c4f945de352bac3767<br>timeCreated: 1472566765<br>licenseType: Pro<br>NativeFormatImporter:<br>  userData:<br>  assetBundleName:<br>  assetBundleVariant: </p>
+<h2 id="本地ID-具体文件"><a href="#本地ID-具体文件" class="headerlink" title="本地ID(具体文件)"></a>本地ID(具体文件)</h2><p>如需查看本地ID，使用文本编辑器打开材质文件，材质Object的定义大致如下：</p>
+<p>%YAML 1.1<br>%TAG !u! tag:unity3d.com,2011:<br>— !u!21 &amp;2100000<br>Material:<br>serializedVersion: 6<br>… more data …</p>
+<p>在上面的例子中，前面有&amp;符号的数字就是材质的本地ID。如果这个材质的Object位于一个文件GUID为“abcdefg”的资源文件中，则该材质Object的唯一识别符就是文件GUID“abcdefg”和本地ID“2100000”的组合。</p>
+<h1 id="为什么要用文件GUID和本地ID？"><a href="#为什么要用文件GUID和本地ID？" class="headerlink" title="为什么要用文件GUID和本地ID？"></a>为什么要用文件GUID和本地ID？</h1><h2 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h2><p>在Unity中，为什么要使用文件GUID和本地ID这套系统呢？答案是为稳定服务，也是为了提供一套灵活的、无关具体平台的工作流程。文件GUID提供了文件存储位置的抽象，这样一个文件GUID就对应一个具体的文件，这个具体的文件存储在什么位置也就无关紧要了。因此我们才能随意移动这个文件而不破坏所有相关Object对这个文件的引用。</p>
+<p>任何资源（Asset）文件中都可能含有（或通过导入产生）多个UnityEngine.Object资源（Resource），因此需要一个本地ID来对其中的Object做明确区分。</p>
+<p>如果与资源文件相关联的文件GUID丢失，则所有对该资源文件中的Object的引用都会被破坏。这就是必须保证.meta文件具有和资源文件相同的文件名并存储在同一目录下的原因。注意Unity会重新生成丢失或被删除的.meta文件。</p>
+<h2 id="Unity编辑器维护映射表"><a href="#Unity编辑器维护映射表" class="headerlink" title="Unity编辑器维护映射表"></a>Unity编辑器维护映射表</h2><p>Unity编辑器负责维护一张文件路径与文件GUID之间关系的映射表。只要资源文件被读取或导入，这个映射关系就会被建立，映射会将资源的具体位置和资源的文件GUID进行关联。Unity编辑器处于打开状态时，假设一个文件的.meta意外丢失，并且该资源文件的路径没有改变，编辑器可以保证这个资源会被分配到相同的文件GUID。</p>
+<p>如果在Unity编辑器处于关闭状态时丢失.meta文件，或资源文件被移动但没有移动对应的.meta文件时，所有对资源文件中的Object的引用都会丢失。</p>
+<h1 id="复合资源和导入器"><a href="#复合资源和导入器" class="headerlink" title="复合资源和导入器"></a>复合资源和导入器</h1><h2 id="资源导入器"><a href="#资源导入器" class="headerlink" title="资源导入器"></a>资源导入器</h2><p>正如前面深入理解资源与对象中所说的一样，不能被Unity直接支持的资源类型必须经过导入才可以使用——使用资源导入器来完成。这些导入器是自动调用的，您也可以使用AssetImporter在脚本中调用API及其子类。例如，在导入单独的纹理资源例如PNG和JPG时，TextureImporter API提供了导入时要使用的相关设置的访问。</p>
+<p>导入过程最终的产物是一系列UnityEngine.Object。在Unity编辑器中，这些对象会具体表现为父资源下的多个子资源，例如作为Sprite Atlas导入的纹理材质，其下属会有多个嵌套的Sprite。每一个对象都会使用相同的文件GUID，因为它们的源数据都存储在同一个资源文件中。它们在纹理资源中的具体区分工作则使用本地ID来完成。</p>
+<h2 id="Library文件夹"><a href="#Library文件夹" class="headerlink" title="Library文件夹"></a>Library文件夹</h2><p>导入过程中会将源资源转换为匹配Unity编辑器中选定的目标平台的格式。导入过程可能会牵涉一些重量级操作，例如纹理压缩。如果每次打开Unity编辑器时都要执行这些操作，那效率就太低了。</p>
+<p>为了解决这一问题，我们将资源导入的结果缓存在Library文件夹中。具体就是，导入进程的结果将会存储在以资源文件GUID头两位作为名称的文件夹中。这些文件夹位于 Library/metadata/ 目录下。各个不同的对象会被序列化后存储在一个二进制文件中，文件使用资源文件的GUID来命名。</p>
+<p>这对所有资源都是一样的，不仅仅是非原生资源。只不过Unity原生支持的资源不需要对其进行转换或序列化处理。</p>
+<h1 id="序列化和实例"><a href="#序列化和实例" class="headerlink" title="序列化和实例"></a>序列化和实例</h1><h2 id="InstanceID"><a href="#InstanceID" class="headerlink" title="InstanceID"></a>InstanceID</h2><p>尽管文件GUID和本地ID是稳健的，它们可以强有力地维护资源之间的关系，但还有一个问题，GUID效率比较低下，我们需要为运行时准备一个效率更高的解决方案。Unity在内部维护着一个缓存表(2)，负责将文件GUID和本地ID转换成为整数数值，这个数值在本次会话中是唯一的，称作InstanceID。InstanceID会简单地以单调递增的方式分配给缓存中新注册的对象。</p>
+<p>缓存负责维护InstanceID与文件GUID和本地ID定义的对象源数据位置以及对象在内存中的地址（如果存在）的映射。 这样Unity就能够强而有力地保证它们互相之间的引用关系。通过解析InstanceID，我们能够快速找到并返回InstanceID对应的已载入实例。如果目标没有被加载，则Unity会通过文件GUID和本地ID解析获得对象的源数据，实时载入对象。</p>
+<p>启动时，InstanceID缓存与所有工程内建的对象（例如在场景中被引用），以及Resources文件夹下的所有对象，都会一起被初始化。如果在运行时(3)导入了新的资源，或从AssetBundle中载入了新的对象，缓存会被更新并为这些对象添加相应条目。InstanceID仅在失效时才会被从缓存中移除，当提供了指定文件GUID和本地ID的AssetBundle被卸载时就会产生移除操作。</p>
+<p>卸载AssetBundle会使InstanceID失效，InstanceID与其文件GUID和本地ID之间的映射会被删除以便节省内存。重新载入AssetBundle后，载入的每个对象都会获得一个新的InstanceID。</p>
+<p>关于AssetBundle隐式卸载的更深层次讨论，参考AssetBundle Usage Patterns中的管理已加载资源章节。</p>
+<h2 id="注意事项-IOS上挂起状态"><a href="#注意事项-IOS上挂起状态" class="headerlink" title="注意事项(IOS上挂起状态)"></a>注意事项(IOS上挂起状态)</h2><p>注意在某些平台上，有一些系统事件会使得对象在内存中被强行卸载。例如iOS平台上，当一个app处于挂起状态时，图形资源就会从显存中卸载。如果这些对象都来自于一个已被卸除的AssetBundle时，Unity将无法再次从源数据处加载这些对象。任何已有的对这些对象的引用都会失效。这个例子中，导致的后果就是出现网格不可见（丢失），或模型的纹理和材质呈现为洋红色（Shader丢失）。</p>
+<h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p>提示：在运行时，对上述控制流程的描述并非完全准确。文件GUID和本地ID的比较操作在载入负担较重时的效率也会下降。构建Unity工程时，文件GUID和本地ID，确切地说会被映射到一种更简单的格式中。不过概念还是大致相同的，在考虑“运行时”的时候以文件GUID和本地ID的工作方式为思路还是有一些参考意义的。</p>
+<p>这也是在运行时资源的文件GUID无法被调取的原因。</p>
+<h1 id="MonoScripts"><a href="#MonoScripts" class="headerlink" title="MonoScripts"></a>MonoScripts</h1><p>理解MonoBehaviour很重要的一点是知道它有一个对MonoScript的引用。MonoScript的用途非常简单，里面包括了定位某个具体的编程类所需要的信息。这两种对象都没有程序类的可执行代码。</p>
+<p>一个MonoScript含有三个字符串：程序库名称，类名称，命名空间。</p>
+<h2 id="程序库-dll"><a href="#程序库-dll" class="headerlink" title="程序库(dll)"></a>程序库(dll)</h2><p>构建工程时，Unity会收集Assets文件夹中独立的脚本文件并将它们编译，组成一个Mono程序库。要特别说明的是，Unity会将Assets目录中的语言分开编译，Assets/Plugins目录中的脚本同理。Plugins子目录之外的C#脚本会放在Assembly-CSharp.dll中。而Plugins及其子目录中的脚本则放置在Assembly-CSharp-firstpass.dll中，以此类推。</p>
+<p>这些程序库（加上预编译好的DLL程序库）将被包含在最终构建的Unity应用程序中。这些程序库都会被MonoScript所引用。与其他类型的资源不同，Unity应用程序中的所有应用程序都会在程序第一次启动时被加载。</p>
+<p>MonoScript就是为什么AssetBundle（或一个场景，一个Prefab）中的MonoBehaviour组件不包含有任何实际可执行代码的原因。这样就可以让不同的MonoBehaviour引用某个共享类，即便这些MonoBehaviour不在同一个AssetBundle中。</p>
+<h1 id="资源（Resource）生命周期"><a href="#资源（Resource）生命周期" class="headerlink" title="资源（Resource）生命周期"></a>资源（Resource）生命周期</h1><p>UnityEngine.Objects从内存中加载或卸载的时间点是定义好的。为了缩短程序载入时间，管理应用程序的内存足迹，理解UnityEinge.Object的资源生命周期是很重要的。</p>
+<h2 id="加载UnityEngine-Object的两种方式"><a href="#加载UnityEngine-Object的两种方式" class="headerlink" title="加载UnityEngine.Object的两种方式"></a>加载UnityEngine.Object的两种方式</h2><p>有两种加载UnityEngine.Object的方式：自动加载或外部加载。</p>
+<p>当对象的InstanceID与对象本身间接引用，对象当前未被加载到内存中，而且可以定位到对象的源数据，此时对象会被自动加载。对象也可以外部加载，通过在脚本中创建对象或调用资源加载API来载入对象（例如AssetBundle.LoadAsset）。</p>
+<p>对象加载后，Unity会尝试修复任何可能存在的引用关系，通过将每个引用的文件GUID和本地ID转化成为InstanceID的方式。</p>
+<p>一旦对象的实例ID被间接引用且满足以下两个标准时，对象会被强制加载：</p>
+<p>1.InstanceID引用了一个没有被加载的对象。<br>2.InstanceID在缓存中存在对应的有效GUID和本地ID。</p>
+<p>这种情况通常会在引用被加载并解析后很短的一段时间内发生。</p>
+<p>如果文件GUID和本地ID没有InstanceID，或一个已卸载对象的InstanceID引用了非法的文件GUID和本地ID，则引用本身会被保留，但实际对象不会被加载。在Unity编辑器中表现为“（空）”引用。在运行的应用程序中，或场景视图里，“（空）”对象通常以多种方式表示，这取决于丢失对象的类型：网格会变得不可见，纹理呈现为洋红色等等。</p>
+<h2 id="对象被卸载的三种情况"><a href="#对象被卸载的三种情况" class="headerlink" title="对象被卸载的三种情况"></a>对象被卸载的三种情况</h2><p>对象被卸载有以下三种情况：</p>
+<p>1.闲置资源清理进程开始后，一些对象会被自动卸载。该过程通常会在切换场景并不保留原场景（例如调用了非叠加的场景切换API Application.LoadLevel），或者脚本中调用了Resources.UnloadUnusedAssets时自动触发。该进程仅卸载没有被引用的对象：Mono变量不存在对其的引用，且不存在引用该对象的其他活动对象。</p>
+<p>2.Resources目录中的对象可以通过调用Resources.UnloadAsset API主动卸载。卸载后InstanceID会保持可用状态，对文件GUID和本地ID的条目会被保留且仍然有效。如果有Mono变量或其他有指向该对象的活动对象引用了被Resources.UnloadAsset卸载的对象，则该对象会在任意有效的引用被间接引用时立刻重新加载。</p>
+<p>3.调用AssetBundle.Unload(true) API时，加载自AssetBundle的对象会被立刻自动卸载。该操作会释放对象InstanceID的文件GUID和本地ID引用，任何对卸载对象的引用都会变成“（空）”引用。C#脚本中，任何试图访问已卸载对象上的方法和属性都会导致抛出空引用异常（NullReferenceException）。</p>
+<p>如果调用了AssetBundle.Unload(false)，被卸载的AssetBundle中仍然处于激活状态的对象不会被回收，但Unity会释放其实例ID的文件GUID和本地GUID引用。之后假如它们被从内存中卸载，只剩下对这些被卸载对象额引用，Unity无法再次重新加载这些对象(4)。</p>
+<h1 id="载入大型结构树（Hierarchies）"><a href="#载入大型结构树（Hierarchies）" class="headerlink" title="载入大型结构树（Hierarchies）"></a>载入大型结构树（Hierarchies）</h1><p>当序列化含有大量Unity游戏对象的结构树时（例如序列化Prefab），要记住一点，即整个结构树都会被完全序列化。这就是说，<font color="#FF0000">结构树中的每一个游戏对象和组件都会在序列化数据中单独表示。</font>这会对游戏对象结构的载入与实例化的耗时带来有趣的影响。</p>
+<p>当创建任一的游戏对象时，CPU的时间花在几种不同的方式上：</p>
+<ol>
+<li>读取源数据的时间（从存储的地方、从另一个游戏对象）</li>
+<li>为新的Transform建立新的父子关系的时间</li>
+<li>实例化新的游戏对象和组件的时间</li>
+<li>唤醒新的游戏对象和组件的时间<br>后三种时间花费通常是不变的。读取源数据的时间随着结构树中组件和游戏对象的数量的增加呈线性增长，并与数据源的速度成正比。<br>在当前的所有平台上，从内存的其它地方读取数据远比从存储设备上加载数据要快的多。此外，也与存储介质的性能-读取数据的速度有<br>关。<br>因此，当从有低速存储器的平台上加载预设时，读取预设的序列化数据的时间远远超过了实例化预设的时间。也就是说，加载的时间花费主要是在存储的I/O上了。<font color="#FF0000">尽量从高速存储介质中读取数据，eg. 内存</font>
+
+</li>
+</ol>
+<p>假设一个代码块实例化了一定数量的游戏对象，结构树非常庞大的单个Prefab的实例化，会比分别实例化结构树的多个模块然后运行时组合花费更多的CPU时间。</p>
+<font color="#FF0000">正如之前提到的，序列化单独的Prefab时，每个游戏对象和其组件都会被分开序列化——即便数据是重复的。一个有30个独立元素的UI界面中，Unity会为这些元素序列化30次，这就会产生大量的序列化数据。在加载时，所有30个重复元素的游戏对象和组件在被转化为新实例对象之前都需要从硬盘中进行读取。就是这个文件读取时间决定了实例化大型Prefab的性能花销。<br>当Unity支持嵌套Prefab之后，对于有载入含有非常多的游戏对象的层次结构的工程而言，要想减少这类工程的载入时间，可以考虑将大型Prefab中的可重用元素分开存储到不同的Prefab中，并在运行时对它们进行实例化，而不是完全依靠Unity的序列化和Prefab系统。<br>此外，一旦一个预制体已经建成，那么克隆已经存在的预制体比重新从存储器中加载要快的多。<br><font color="#FF0000">将大型Prefab中的可重用元素单独存储到单个的Prefab中,对于可重用的元素运行时先实例化一次（只从低速存储介质中读取数据一次），若在组合成原大型Prefab时另需要，则复制已实例化的元素进行实例化（内存高速介质读取数据）</font>
+
+<h2 id="Unity-5-4-Note"><a href="#Unity-5-4-Note" class="headerlink" title="Unity 5.4 Note:"></a>Unity 5.4 Note:</h2><pre><code>Unity5.4改变了Transform在内存中表示形式。每个根Transform的所有子Transform存储在内存的紧凑、连续的区域中。&lt;font color=&quot;#FF0000&quot;&gt;当实例化的游戏物体随后会加入到另一个层次结构中，考虑使用有父节点的参数新的GameObject.Instantiate的重载。&lt;/font&gt;
+使用这个重载将避免新物体将在的根Transform的层次结构的重新分配。在测试中，这将会加快实例化操作所需时间的5% - 10%。
+</code></pre><h1 id="Footnotes-脚注"><a href="#Footnotes-脚注" class="headerlink" title="Footnotes(脚注)"></a>Footnotes(脚注)</h1><p>1.在文件中，本地ID是唯一的。即在一个资源文件中，里面包含的本地ID都是不重复的。</p>
+<p>2.在内部，这种缓存被称为PersistentManager。实际的转换工作在在Unity的C++ Remapper类中进行，Remapper类没有提供任何C# API调用接口。</p>
+<p>3.运行时创建资源的示例是在脚本中创建Texture2D对象：var myTexture = new Texture2D(1027, 768);</p>
+<p>4.程序运行时对象并没有被卸载却被从内存中移除的情况通常会发生在Unity失去了对图形内容的控制的时候。例如，当手机应用被挂起并被强制在后台运行。这种情况下，手机操作系统通常会将所有的图形资源从GPU显存中强行卸载。之后APP再回到前台运行时，Unity不得不重新向GPU上传需要的材质、着色器和网格数据，以便恢复场景的正常渲染。</p>
+</font>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Unity-Asset-Resources-and-AssetBundles/" rel="tag"># Unity Asset, Resources and AssetBundles</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/07/unity元文件/" rel="next" title="unity元文件">
+                <i class="fa fa-chevron-left"></i> unity元文件
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/07/The-Resources-Folder/" rel="prev" title="The Resources Folder">
+                The Resources Folder <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Jpsxno1" />
+          <p class="site-author-name" itemprop="name">Jpsxno1</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#深入理解资源和对象"><span class="nav-number">1.</span> <span class="nav-text">深入理解资源和对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Asset"><span class="nav-number">1.1.</span> <span class="nav-text">Asset</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UnityEngine-Object"><span class="nav-number">1.2.</span> <span class="nav-text">UnityEngine.Object</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特殊的Object类型"><span class="nav-number">1.3.</span> <span class="nav-text">特殊的Object类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一对多关系"><span class="nav-number">1.4.</span> <span class="nav-text">一对多关系</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对象之间的引用"><span class="nav-number">2.</span> <span class="nav-text">对象之间的引用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#文件GUID-meta"><span class="nav-number">2.1.</span> <span class="nav-text">文件GUID(.meta)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地ID-具体文件"><span class="nav-number">2.2.</span> <span class="nav-text">本地ID(具体文件)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么要用文件GUID和本地ID？"><span class="nav-number">3.</span> <span class="nav-text">为什么要用文件GUID和本地ID？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#工作流程"><span class="nav-number">3.1.</span> <span class="nav-text">工作流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Unity编辑器维护映射表"><span class="nav-number">3.2.</span> <span class="nav-text">Unity编辑器维护映射表</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#复合资源和导入器"><span class="nav-number">4.</span> <span class="nav-text">复合资源和导入器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#资源导入器"><span class="nav-number">4.1.</span> <span class="nav-text">资源导入器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Library文件夹"><span class="nav-number">4.2.</span> <span class="nav-text">Library文件夹</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#序列化和实例"><span class="nav-number">5.</span> <span class="nav-text">序列化和实例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#InstanceID"><span class="nav-number">5.1.</span> <span class="nav-text">InstanceID</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项-IOS上挂起状态"><span class="nav-number">5.2.</span> <span class="nav-text">注意事项(IOS上挂起状态)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#提示"><span class="nav-number">5.3.</span> <span class="nav-text">提示</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MonoScripts"><span class="nav-number">6.</span> <span class="nav-text">MonoScripts</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#程序库-dll"><span class="nav-number">6.1.</span> <span class="nav-text">程序库(dll)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#资源（Resource）生命周期"><span class="nav-number">7.</span> <span class="nav-text">资源（Resource）生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#加载UnityEngine-Object的两种方式"><span class="nav-number">7.1.</span> <span class="nav-text">加载UnityEngine.Object的两种方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象被卸载的三种情况"><span class="nav-number">7.2.</span> <span class="nav-text">对象被卸载的三种情况</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#载入大型结构树（Hierarchies）"><span class="nav-number">8.</span> <span class="nav-text">载入大型结构树（Hierarchies）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Unity-5-4-Note"><span class="nav-number">8.1.</span> <span class="nav-text">Unity 5.4 Note:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Footnotes-脚注"><span class="nav-number">9.</span> <span class="nav-text">Footnotes(脚注)</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jpsxno1</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
